@@ -14,15 +14,27 @@ Then, to enable this plugin, run::
 
     tutor plugins enable meilisearch
 
+If you have an already running platform, initialize this plugin with a command like the following::
+
+    tutor [local|dev|k8s] do init --limit=meilisearch
+
+Or use ``tutor [local|dev|k8s] launch -I`` to re-launch the platform (takes much longer).
+
 Configuration
 -------------
 
 - ``MEILISEARCH_INDEX_PREFIX`` (default: ``"tutor_"``)
 - ``MEILISEARCH_PUBLIC_HOST`` (default: ``"meilisearch.{{ LMS_HOST }}"``)
 - ``MEILISEARCH_DOCKER_IMAGE`` (default: ``"docker.io/getmeili/meilisearch:v1.6``)
-- ``MEILISEARCH_MASTER_KEY`` (default: auto-generated)
+- ``MEILISEARCH_MASTER_KEY`` The master key. Only required to generate the API key (default: auto-generated).
+- ``MEILISEARCH_API_KEY`` The API key (or tenant key) to use for this Open edX instance (default: auto-generated using the master key).
 
 These values can be modified with ``tutor config save --set PARAM_NAME=VALUE`` commands.
+
+TODO
+----
+
+Currently, this plugin always deploys a new instance of Meilisearch. It should be modified to support using an existing external instance if desired.
 
 DNS records
 -----------
@@ -38,7 +50,7 @@ The Meilisearch web UI can be accessed at http(s)://<MEILISEARCH_PUBLIC_HOST>. F
 
 An API key for accessing the UI can be obtained with::
 
-  tutor config printvalue MEILISEARCH_MASTER_KEY
+  tutor config printvalue MEILISEARCH_API_KEY
 
 Troubleshooting
 ---------------
