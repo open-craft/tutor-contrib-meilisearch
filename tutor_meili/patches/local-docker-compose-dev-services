@@ -1,0 +1,7 @@
+meilisearch:
+  ports:
+    - "127.0.0.1:7700:7700"
+  networks:
+    default:
+      aliases:
+        - "{{ MEILISEARCH_PUBLIC_HOST }}"

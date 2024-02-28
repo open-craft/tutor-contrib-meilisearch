@@ -1,0 +1,47 @@
+[project]
+name = "tutor-meilisearch"
+dynamic = ["version"]
+description = "A Tutor plugin for search using Meilisearch"
+readme = "README.rst"
+license = { file = "LICENSE.txt" }
+requires-python = ">=3.8"
+authors = [
+    { name = "Braden MacDonald", email = "braden@opencraft.com" },
+    { name = "Overhang.IO", email = "contact@overhang.io" },
+]
+maintainers = [
+    { name = "Braden MacDonald", email = "braden@opencraft.com" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "tutor>=17.0.0,<18.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "tutor[dev]>=17.0.0,<18.0.0",
+]
+
+[project.entry-points."tutor.plugin.v1"]
+meilisearch = "tutor_meili.plugin"
+
+[project.urls]
+Code = "https://github.com/open-craft/tutor-meilisearch"
+Community = "https://discuss.openedx.org"
+Documentation = "https://docs.tutor.edly.io/"
+Homepage = "https://docs.tutor.edly.io/"
+"Issue tracker" = "https://github.com/open-craft/tutor-meilisearch/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "tutor_meili.__about__.__version__"}

@@ -1,0 +1,2 @@
+recursive-include tutor_meili/patches *
+recursive-include tutor_meili/templates *

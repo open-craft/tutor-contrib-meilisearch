@@ -1,0 +1,4 @@
+# Meilisearch
+{{ MEILISEARCH_PUBLIC_HOST }}{$default_site_port} {
+    import proxy "meilisearch:7700"
+}

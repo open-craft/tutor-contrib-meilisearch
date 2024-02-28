@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: meilisearch
+spec:
+  type: NodePort
+  ports:
+    - port: 7700
+      protocol: TCP
+      name: meilisearch
+  selector:
+    app.kubernetes.io/name: meilisearch

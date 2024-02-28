@@ -1,0 +1,8 @@
+# Meilisearch
+meilisearch:
+  image: {{ MEILISEARCH_DOCKER_IMAGE }}
+  volumes:
+    - ../../data/meilisearch:/meili_data
+  environment:
+    MEILI_MASTER_KEY: "{{ MEILISEARCH_MASTER_KEY }}"
+  restart: unless-stopped

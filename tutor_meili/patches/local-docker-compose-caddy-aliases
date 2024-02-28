@@ -1,0 +1,1 @@
+- "{{ MEILISEARCH_PUBLIC_HOST }}"
