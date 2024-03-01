@@ -1,0 +1,2 @@
+MEILISEARCH_URL = "http://meilisearch:7700"
+MEILISEARCH_PUBLIC_URL = "https://{{ MEILISEARCH_PUBLIC_HOST }}"

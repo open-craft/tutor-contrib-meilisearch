@@ -39,7 +39,7 @@ Currently, this plugin always deploys a new instance of Meilisearch. It should b
 DNS records
 -----------
 
-For production use, it is assumed that the ``MEILISEARCH_PUBLIC_HOST`` DNS record points to your server. We don't yet know whether it will be required to make this endpoint public or not (does the LMS/CMS proxy all calls to Meilisearch or do browsers make calls directly?).
+For production use, it is assumed that the ``MEILISEARCH_PUBLIC_HOST`` DNS record points to your server.
 
 In development mode, Meilisearch is available at http://meilisearch.local.edly.io:7700.
 
