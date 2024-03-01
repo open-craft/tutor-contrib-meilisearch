@@ -8,7 +8,7 @@ Installation
 
 Currently, you need to clone this repo from GitHub then install it into your tutor virtual environment with::
 
-    pip install -e ./tutor-meilisearch
+    pip install -e ./tutor-contrib-meilisearch
 
 Then, to enable this plugin, run::
 
@@ -60,4 +60,4 @@ TBD
 License
 -------
 
-This work is licensed under the terms of the `GNU Affero General Public License (AGPL) <https://github.com/open-craft/tutor-meilisearch/blob/master/LICENSE.txt>`_.
+This work is licensed under the terms of the `GNU Affero General Public License (AGPL) <https://github.com/open-craft/tutor-contrib-meilisearch/blob/master/LICENSE.txt>`_.

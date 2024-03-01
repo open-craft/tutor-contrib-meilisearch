@@ -37,11 +37,11 @@ dev = [
 meilisearch = "tutor_meili.plugin"
 
 [project.urls]
-Code = "https://github.com/open-craft/tutor-meilisearch"
+Code = "https://github.com/open-craft/tutor-contrib-meilisearch"
 Community = "https://discuss.openedx.org"
 Documentation = "https://docs.tutor.edly.io/"
 Homepage = "https://docs.tutor.edly.io/"
-"Issue tracker" = "https://github.com/open-craft/tutor-meilisearch/issues"
+"Issue tracker" = "https://github.com/open-craft/tutor-contrib-meilisearch/issues"
 
 [tool.setuptools.dynamic]
 version = {attr = "tutor_meili.__about__.__version__"}
