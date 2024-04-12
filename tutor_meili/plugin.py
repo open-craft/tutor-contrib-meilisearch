@@ -32,7 +32,7 @@ config: dict[str, dict[str, t.Any]] = {
         # use an index prefix to segregate data if you have multiple Open edX instances sharing one Meilisearch instance
         "INDEX_PREFIX": "tutor_",
         "PUBLIC_HOST": "meilisearch.{{ LMS_HOST }}",
-        "DOCKER_IMAGE": "docker.io/getmeili/meilisearch:v1.6",
+        "DOCKER_IMAGE": "docker.io/getmeili/meilisearch:v1.7",
     },
     "unique": {
         # A key that we use during init to generate an API key, if required

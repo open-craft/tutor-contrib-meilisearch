@@ -25,11 +25,27 @@ Configuration
 
 - ``MEILISEARCH_INDEX_PREFIX`` (default: ``"tutor_"``)
 - ``MEILISEARCH_PUBLIC_HOST`` (default: ``"meilisearch.{{ LMS_HOST }}"``)
-- ``MEILISEARCH_DOCKER_IMAGE`` (default: ``"docker.io/getmeili/meilisearch:v1.6``)
+- ``MEILISEARCH_DOCKER_IMAGE`` (default: ``"docker.io/getmeili/meilisearch:v1.7``)
 - ``MEILISEARCH_MASTER_KEY`` The master key. Only required to generate the API key (default: auto-generated).
 - ``MEILISEARCH_API_KEY`` The API key (or tenant key) to use for this Open edX instance (default: auto-generated using the master key).
 
 These values can be modified with ``tutor config save --set PARAM_NAME=VALUE`` commands.
+
+Upgrading
+---------
+If you upgrade this plugin or change the ``MEILISEARCH_DOCKER_IMAGE`` setting, you may get a new version of Meilisearch.
+In that case, the ``meilisearch`` Docker service will fail to start because the index format is from an older version.
+For large instances, you can follow the `Meilisearch update procedure <https://www.meilisearch.com/docs/learn/update_and_migration/updating#updating-a-self-hosted-meilisearch-instance>`_
+(basically, dump the index contents to a file, upgrade it, then restore from the data dump file). For development and
+smaller installations, the easier way is to follow this procedure::
+
+    tutor [local|dev] stop meilisearch
+    cd "$(tutor config printroot)/data/meilisearch"
+    mv data.ms "data.ms.$(date +%Y-%m-%d)"
+    tutor config save
+    tutor [local|dev] start -d meilisearch
+    tutor [local|dev] do init --limit=meilisearch
+    tutor dev run cms ./manage.py cms reindex_studio --experimental
 
 TODO
 ----
