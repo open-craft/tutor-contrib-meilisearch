@@ -1,0 +1,22 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: meilisearch-job
+  labels:
+    app.kubernetes.io/component: job
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: meilisearch
+          image: {{ MEILISEARCH_DOCKER_IMAGE }}
+
+          env:
+            - name: MEILI_MASTER_KEY
+              value: "{{ MEILISEARCH_MASTER_KEY }}"
+            - name: MEILISEARCH__INTERNAL_API_KEY_UID 
+              value: "{{ MEILISEARCH__INTERNAL_API_KEY_UID }}"
+            - name: MEILISEARCH_INDEX_PREFIX
+              value: "{{ MEILISEARCH_INDEX_PREFIX }}"
