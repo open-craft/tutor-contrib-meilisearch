@@ -25,12 +25,12 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "tutor>=17.0.0,<18.0.0",
+    "tutor>=17.0.0,<19.0.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "tutor[dev]>=17.0.0,<18.0.0",
+    "tutor[dev]>=17.0.0,<19.0.0",
 ]
 
 [project.entry-points."tutor.plugin.v1"]
