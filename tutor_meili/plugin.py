@@ -5,6 +5,7 @@ import hashlib
 import os
 import typing as t
 from glob import glob
+from pathlib import Path
 import secrets
 import uuid
 
@@ -18,7 +19,7 @@ from .__about__ import __version__
 if __version_suffix__:
     __version__ += "-" + __version_suffix__
 
-HERE = os.path.abspath(os.path.dirname(__file__))
+HERE = Path(__file__).resolve().parent
 
 # Generate random master key and API key. Need to do this in python so we can compute the hash, which Jinja2 can't do.
 # Note that this default will change every time, but that's fine. Once it's saved into the user's config it's stable.
@@ -71,14 +72,18 @@ def add_meilisearch_hosts(
     return hosts
 
 
-# Add pre-init script as init task with high priority
-with open(
-    os.path.join(HERE, "templates", "meilisearch", "tasks", "meilisearch", "init.sh"),
-    encoding="utf-8",
-) as fi:
-    tutor_hooks.Filters.CLI_DO_INIT_TASKS.add_item(
-        ("meilisearch", fi.read()), priority=tutor_hooks.priorities.HIGH
-    )
+# Add our init scripts:
+SCRIPTS = HERE / "templates" / "meilisearch" / "tasks" / "meilisearch"
+# This script will initialize Meilisearch by creating the API key used by edxapp:
+tutor_hooks.Filters.CLI_DO_INIT_TASKS.add_item(
+    ("meilisearch", (SCRIPTS / "init.sh").read_text()),
+    priority=tutor_hooks.priorities.HIGH,
+)
+# This script will (re-)index all the Studio content:
+tutor_hooks.Filters.CLI_DO_INIT_TASKS.add_item(
+    ("cms", "./manage.py cms reindex_studio --experimental"),
+    priority=tutor_hooks.priorities.LOW,
+)
 
 # Add the "templates" folder as a template root
 tutor_hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
