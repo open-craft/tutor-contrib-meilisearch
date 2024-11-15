@@ -31,7 +31,7 @@ config: dict[str, dict[str, t.Any]] = {
     "defaults": {
         "VERSION": __version__,
         # use an index prefix to segregate data if you have multiple Open edX instances sharing one Meilisearch instance
-        "INDEX_PREFIX": "tutor_",
+        "INDEX_PREFIX": "openedx_{{K8S_NAMESPACE}}_",
         "PUBLIC_HOST": "meilisearch.{{ LMS_HOST }}",
         "DOCKER_IMAGE": "docker.io/getmeili/meilisearch:v1.8",
         "RUN": False,
