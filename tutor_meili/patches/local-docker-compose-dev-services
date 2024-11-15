@@ -1,4 +1,4 @@
-{% if RUN_MEILISEARCH %}
+{% if MEILISEARCH_RUN %}
 meilisearch:
   ports:
     - "127.0.0.1:7700:7700"

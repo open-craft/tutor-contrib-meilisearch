@@ -34,7 +34,8 @@ config: dict[str, dict[str, t.Any]] = {
         "INDEX_PREFIX": "tutor_",
         "PUBLIC_HOST": "meilisearch.{{ LMS_HOST }}",
         "DOCKER_IMAGE": "docker.io/getmeili/meilisearch:v1.8",
-        "RUN_MEILISEARCH": False,
+        "RUN": False,
+        "HOST": "meilisearch:7700",
     },
     "unique": {
         # A key that we use during init to generate an API key, if required
@@ -52,7 +53,7 @@ config: dict[str, dict[str, t.Any]] = {
 
 # Add configuration entries
 tutor_hooks.Filters.CONFIG_DEFAULTS.add_items(
-    [(f"MEILISEARCH_{key}", value) for key, value in config.get("defaults", {}).items()]
+    [(f"MEILISEARCH_{key}", value) for key, value in config.get("defaults", {}).items()] + []
 )
 tutor_hooks.Filters.CONFIG_UNIQUE.add_items(
     [(f"MEILISEARCH_{key}", value) for key, value in config.get("unique", {}).items()]

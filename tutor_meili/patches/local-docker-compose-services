@@ -1,5 +1,5 @@
 # Meilisearch
-{% if RUN_MEILISEARCH %}
+{% if MEILISEARCH_RUN %}
 meilisearch:
   image: {{ MEILISEARCH_DOCKER_IMAGE }}
   volumes:
