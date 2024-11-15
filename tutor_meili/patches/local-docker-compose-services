@@ -1,4 +1,5 @@
 # Meilisearch
+{% if RUN_MEILISEARCH %}
 meilisearch:
   image: {{ MEILISEARCH_DOCKER_IMAGE }}
   volumes:
@@ -6,3 +7,4 @@ meilisearch:
   environment:
     MEILI_MASTER_KEY: "{{ MEILISEARCH_MASTER_KEY }}"
   restart: unless-stopped
+{% endif %}

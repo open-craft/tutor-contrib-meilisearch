@@ -1,1 +1,3 @@
+{% if RUN_MEILISEARCH %}
 - "{{ MEILISEARCH_PUBLIC_HOST }}"
+{% endif %}

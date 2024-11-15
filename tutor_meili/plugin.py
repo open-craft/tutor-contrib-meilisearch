@@ -34,6 +34,7 @@ config: dict[str, dict[str, t.Any]] = {
         "INDEX_PREFIX": "tutor_",
         "PUBLIC_HOST": "meilisearch.{{ LMS_HOST }}",
         "DOCKER_IMAGE": "docker.io/getmeili/meilisearch:v1.8",
+        "RUN_MEILISEARCH": False,
     },
     "unique": {
         # A key that we use during init to generate an API key, if required

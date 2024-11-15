@@ -1,3 +1,4 @@
+{% if MEILISEARCH_RUN %}
 ---
 apiVersion: v1
 kind: Service
@@ -11,3 +12,4 @@ spec:
       name: meilisearch
   selector:
     app.kubernetes.io/name: meilisearch
+{% endif %}

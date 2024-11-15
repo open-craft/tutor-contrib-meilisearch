@@ -1,3 +1,4 @@
+{% if RUN_MEILISEARCH %}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -31,3 +32,4 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: meilisearch
+{% endif %}
