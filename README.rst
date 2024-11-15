@@ -1,7 +1,9 @@
 Meilisearch for Open edX (Tutor Plugin)
 =======================================
 
-This is a plugin for `Tutor <https://docs.tutor.edly.io>`_ that provides Meilisearch to the platform, so it can be used as a search engine to power content search.
+This is a plugin for `Tutor <https://docs.tutor.edly.io>`_ 18 (Open edX "Redwood" release) that provides Meilisearch to the platform, so it can be used as a search engine to power content search.
+
+⭐️ This plugin isn't needed with Tutor 19+ (Open edX Sumac+), as `Meilisearch functionality is now built in <https://github.com/overhangio/tutor/pull/1141>`_. ⭐️ 
 
 Installation
 ------------
