@@ -79,9 +79,10 @@ tutor_hooks.Filters.CLI_DO_INIT_TASKS.add_item(
     ("meilisearch", (SCRIPTS / "init.sh").read_text()),
     priority=tutor_hooks.priorities.HIGH,
 )
-# This script will (re-)index all the Studio content:
+# This script will create the Studio content index, and print
+# instructions on how to reindex studio content, if needed.
 tutor_hooks.Filters.CLI_DO_INIT_TASKS.add_item(
-    ("cms", "./manage.py cms reindex_studio --experimental"),
+    ("cms", "./manage.py cms reindex_studio --experimental --init"),
     priority=tutor_hooks.priorities.LOW,
 )
 
